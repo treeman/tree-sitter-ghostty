@@ -2,7 +2,7 @@
   "name": "tree-sitter-ghostty",
   "version": "0.0.1",
   "description": "Ghostty grammar for tree-sitter",
-  "repository": "github:tree-sitter/tree-sitter-ghostty",
+  "repository": "https://github.com/treeman/tree-sitter-ghostty",
   "license": "MIT",
   "main": "bindings/node",
   "types": "bindings/node",
