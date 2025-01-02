@@ -1,0 +1,28 @@
+{
+  "grammars": [
+    {
+      "name": "ghostty",
+      "camelcase": "Ghostty",
+      "scope": "source.ghostty",
+      "path": ".",
+      "file-types": null,
+      "injection-regex": "^ghostty$"
+    }
+  ],
+  "metadata": {
+    "version": "0.0.1",
+    "license": "MIT",
+    "description": "Ghostty grammar for tree-sitter",
+    "links": {
+      "repository": "https://github.com/treeman/tree-sitter-ghostty"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true
+  }
+}
