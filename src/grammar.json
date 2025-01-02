@@ -1,0 +1,665 @@
+{
+  "name": "ghostty",
+  "rules": {
+    "source": {
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_line"
+      }
+    },
+    "_line": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_whitespace"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "comment"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "assignment"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_newline"
+        }
+      ]
+    },
+    "comment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "#[^\\n]*"
+        }
+      ]
+    },
+    "assignment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_whitespace"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_whitespace"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "value"
+        }
+      ]
+    },
+    "_keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "invalid_keyword"
+        }
+      ]
+    },
+    "keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "font-family"
+        },
+        {
+          "type": "STRING",
+          "value": "font-family-bold"
+        },
+        {
+          "type": "STRING",
+          "value": "font-family-italic"
+        },
+        {
+          "type": "STRING",
+          "value": "font-family-bold-italic"
+        },
+        {
+          "type": "STRING",
+          "value": "font-style"
+        },
+        {
+          "type": "STRING",
+          "value": "font-style-bold"
+        },
+        {
+          "type": "STRING",
+          "value": "font-style-italic"
+        },
+        {
+          "type": "STRING",
+          "value": "font-style-bold-italic"
+        },
+        {
+          "type": "STRING",
+          "value": "font-synthetic-style"
+        },
+        {
+          "type": "STRING",
+          "value": "font-feature"
+        },
+        {
+          "type": "STRING",
+          "value": "font-size"
+        },
+        {
+          "type": "STRING",
+          "value": "font-variation"
+        },
+        {
+          "type": "STRING",
+          "value": "font-variation-bold"
+        },
+        {
+          "type": "STRING",
+          "value": "font-variation-italic"
+        },
+        {
+          "type": "STRING",
+          "value": "font-variation-bold-italic"
+        },
+        {
+          "type": "STRING",
+          "value": "font-codepoint-map"
+        },
+        {
+          "type": "STRING",
+          "value": "font-thicken"
+        },
+        {
+          "type": "STRING",
+          "value": "adjust-cell-width"
+        },
+        {
+          "type": "STRING",
+          "value": "adjust-cell-height"
+        },
+        {
+          "type": "STRING",
+          "value": "adjust-font-baseline"
+        },
+        {
+          "type": "STRING",
+          "value": "adjust-underline-position"
+        },
+        {
+          "type": "STRING",
+          "value": "adjust-underline-thickness"
+        },
+        {
+          "type": "STRING",
+          "value": "adjust-strikethrough-position"
+        },
+        {
+          "type": "STRING",
+          "value": "adjust-strikethrough-thickness"
+        },
+        {
+          "type": "STRING",
+          "value": "adjust-overline-position"
+        },
+        {
+          "type": "STRING",
+          "value": "adjust-overline-thickness"
+        },
+        {
+          "type": "STRING",
+          "value": "adjust-cursor-thickness"
+        },
+        {
+          "type": "STRING",
+          "value": "adjust-cursor-height"
+        },
+        {
+          "type": "STRING",
+          "value": "adjust-box-thickness"
+        },
+        {
+          "type": "STRING",
+          "value": "grapheme-width-method"
+        },
+        {
+          "type": "STRING",
+          "value": "freetype-load-flags"
+        },
+        {
+          "type": "STRING",
+          "value": "theme"
+        },
+        {
+          "type": "STRING",
+          "value": "background"
+        },
+        {
+          "type": "STRING",
+          "value": "foreground"
+        },
+        {
+          "type": "STRING",
+          "value": "selection-foreground"
+        },
+        {
+          "type": "STRING",
+          "value": "selection-background"
+        },
+        {
+          "type": "STRING",
+          "value": "selection-invert-fg-bg"
+        },
+        {
+          "type": "STRING",
+          "value": "minimum-contrast"
+        },
+        {
+          "type": "STRING",
+          "value": "palette"
+        },
+        {
+          "type": "STRING",
+          "value": "cursor-color"
+        },
+        {
+          "type": "STRING",
+          "value": "cursor-invert-fg-bg"
+        },
+        {
+          "type": "STRING",
+          "value": "cursor-opacity"
+        },
+        {
+          "type": "STRING",
+          "value": "cursor-style"
+        },
+        {
+          "type": "STRING",
+          "value": "cursor-style-blink"
+        },
+        {
+          "type": "STRING",
+          "value": "cursor-text"
+        },
+        {
+          "type": "STRING",
+          "value": "cursor-click-to-move"
+        },
+        {
+          "type": "STRING",
+          "value": "mouse-hide-while-typing"
+        },
+        {
+          "type": "STRING",
+          "value": "mouse-shift-capture"
+        },
+        {
+          "type": "STRING",
+          "value": "mouse-scroll-multiplier"
+        },
+        {
+          "type": "STRING",
+          "value": "background-opacity"
+        },
+        {
+          "type": "STRING",
+          "value": "background-blur-radius"
+        },
+        {
+          "type": "STRING",
+          "value": "unfocused-split-opacity"
+        },
+        {
+          "type": "STRING",
+          "value": "unfocused-split-fill"
+        },
+        {
+          "type": "STRING",
+          "value": "command"
+        },
+        {
+          "type": "STRING",
+          "value": "initial-command"
+        },
+        {
+          "type": "STRING",
+          "value": "wait-after-command"
+        },
+        {
+          "type": "STRING",
+          "value": "abnormal-command-exit-runtime"
+        },
+        {
+          "type": "STRING",
+          "value": "scrollback-limit"
+        },
+        {
+          "type": "STRING",
+          "value": "link"
+        },
+        {
+          "type": "STRING",
+          "value": "link-url"
+        },
+        {
+          "type": "STRING",
+          "value": "fullscreen"
+        },
+        {
+          "type": "STRING",
+          "value": "title"
+        },
+        {
+          "type": "STRING",
+          "value": "class"
+        },
+        {
+          "type": "STRING",
+          "value": "x11-instance-name"
+        },
+        {
+          "type": "STRING",
+          "value": "working-directory"
+        },
+        {
+          "type": "STRING",
+          "value": "keybind"
+        },
+        {
+          "type": "STRING",
+          "value": "window-padding-x"
+        },
+        {
+          "type": "STRING",
+          "value": "window-padding-y"
+        },
+        {
+          "type": "STRING",
+          "value": "window-padding-balance"
+        },
+        {
+          "type": "STRING",
+          "value": "window-padding-color"
+        },
+        {
+          "type": "STRING",
+          "value": "window-vsync"
+        },
+        {
+          "type": "STRING",
+          "value": "window-inherit-working-directory"
+        },
+        {
+          "type": "STRING",
+          "value": "window-inherit-font-size"
+        },
+        {
+          "type": "STRING",
+          "value": "window-decoration"
+        },
+        {
+          "type": "STRING",
+          "value": "window-title-font-family"
+        },
+        {
+          "type": "STRING",
+          "value": "window-theme"
+        },
+        {
+          "type": "STRING",
+          "value": "window-colorspace"
+        },
+        {
+          "type": "STRING",
+          "value": "window-height"
+        },
+        {
+          "type": "STRING",
+          "value": "window-width"
+        },
+        {
+          "type": "STRING",
+          "value": "window-save-state"
+        },
+        {
+          "type": "STRING",
+          "value": "window-step-resize"
+        },
+        {
+          "type": "STRING",
+          "value": "window-new-tab-position"
+        },
+        {
+          "type": "STRING",
+          "value": "resize-overlay"
+        },
+        {
+          "type": "STRING",
+          "value": "resize-overlay-position"
+        },
+        {
+          "type": "STRING",
+          "value": "resize-overlay-duration"
+        },
+        {
+          "type": "STRING",
+          "value": "focus-follows-mouse"
+        },
+        {
+          "type": "STRING",
+          "value": "clipboard-read"
+        },
+        {
+          "type": "STRING",
+          "value": "clipboard-write"
+        },
+        {
+          "type": "STRING",
+          "value": "clipboard-trim-trailing-spaces"
+        },
+        {
+          "type": "STRING",
+          "value": "clipboard-paste-protection"
+        },
+        {
+          "type": "STRING",
+          "value": "clipboard-paste-bracketed-safe"
+        },
+        {
+          "type": "STRING",
+          "value": "image-storage-limit"
+        },
+        {
+          "type": "STRING",
+          "value": "copy-on-select"
+        },
+        {
+          "type": "STRING",
+          "value": "click-repeat-interval"
+        },
+        {
+          "type": "STRING",
+          "value": "config-file"
+        },
+        {
+          "type": "STRING",
+          "value": "config-default-files"
+        },
+        {
+          "type": "STRING",
+          "value": "confirm-close-surface"
+        },
+        {
+          "type": "STRING",
+          "value": "quit-after-last-window-closed"
+        },
+        {
+          "type": "STRING",
+          "value": "quit-after-last-window-closed-delay"
+        },
+        {
+          "type": "STRING",
+          "value": "initial-window"
+        },
+        {
+          "type": "STRING",
+          "value": "quick-terminal-position"
+        },
+        {
+          "type": "STRING",
+          "value": "quick-terminal-screen"
+        },
+        {
+          "type": "STRING",
+          "value": "quick-terminal-animation-duration"
+        },
+        {
+          "type": "STRING",
+          "value": "quick-terminal-autohide"
+        },
+        {
+          "type": "STRING",
+          "value": "shell-integration"
+        },
+        {
+          "type": "STRING",
+          "value": "shell-integration-features"
+        },
+        {
+          "type": "STRING",
+          "value": "osc-color-report-format"
+        },
+        {
+          "type": "STRING",
+          "value": "vt-kam-allowed"
+        },
+        {
+          "type": "STRING",
+          "value": "custom-shader"
+        },
+        {
+          "type": "STRING",
+          "value": "custom-shader-animation"
+        },
+        {
+          "type": "STRING",
+          "value": "macos-non-native-fullscreen"
+        },
+        {
+          "type": "STRING",
+          "value": "macos-titlebar-style"
+        },
+        {
+          "type": "STRING",
+          "value": "macos-titlebar-proxy-icon"
+        },
+        {
+          "type": "STRING",
+          "value": "macos-option-as-alt"
+        },
+        {
+          "type": "STRING",
+          "value": "macos-window-shadow"
+        },
+        {
+          "type": "STRING",
+          "value": "macos-auto-secure-input"
+        },
+        {
+          "type": "STRING",
+          "value": "macos-secure-input-indication"
+        },
+        {
+          "type": "STRING",
+          "value": "macos-icon"
+        },
+        {
+          "type": "STRING",
+          "value": "macos-icon-frame"
+        },
+        {
+          "type": "STRING",
+          "value": "macos-icon-ghost-color"
+        },
+        {
+          "type": "STRING",
+          "value": "macos-icon-screen-color"
+        },
+        {
+          "type": "STRING",
+          "value": "linux-cgroup"
+        },
+        {
+          "type": "STRING",
+          "value": "linux-cgroup-memory-limit"
+        },
+        {
+          "type": "STRING",
+          "value": "linux-cgroup-processes-limit"
+        },
+        {
+          "type": "STRING",
+          "value": "linux-cgroup-hard-fail"
+        },
+        {
+          "type": "STRING",
+          "value": "gtk-single-instance"
+        },
+        {
+          "type": "STRING",
+          "value": "gtk-titlebar"
+        },
+        {
+          "type": "STRING",
+          "value": "gtk-tabs-location"
+        },
+        {
+          "type": "STRING",
+          "value": "adw-toolbar-style"
+        },
+        {
+          "type": "STRING",
+          "value": "gtk-wide-tabs"
+        },
+        {
+          "type": "STRING",
+          "value": "gtk-adwaita"
+        },
+        {
+          "type": "STRING",
+          "value": "desktop-notifications"
+        },
+        {
+          "type": "STRING",
+          "value": "bold-is-bright"
+        },
+        {
+          "type": "STRING",
+          "value": "term"
+        },
+        {
+          "type": "STRING",
+          "value": "enquiry-response"
+        },
+        {
+          "type": "STRING",
+          "value": "auto-update"
+        },
+        {
+          "type": "STRING",
+          "value": "auto-update-channel"
+        }
+      ]
+    },
+    "invalid_keyword": {
+      "type": "PATTERN",
+      "value": "[\\w-]+"
+    },
+    "value": {
+      "type": "PATTERN",
+      "value": "[^\\n]+"
+    },
+    "_newline": {
+      "type": "STRING",
+      "value": "\n"
+    },
+    "_whitespace": {
+      "type": "PATTERN",
+      "value": "\\s*"
+    }
+  },
+  "extras": [
+    {
+      "type": "STRING",
+      "value": "\r"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}
